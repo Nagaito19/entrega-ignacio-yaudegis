@@ -1,0 +1,35 @@
+{% extends "AppEntrega/padre.html" %}
+
+{% block titulo %}
+magos famosos
+{% endblock titulo %}
+
+
+
+{% block contenido %}
+<section class="features-icons bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+                <h1>mago</h1>
+
+                <p>
+                    <ul>
+                    {%for mago in mago %}
+                        <li>{{mago}}</li>
+                        <button>
+                            <a href="{% url 'leerMago' mago.id %}">eliminar</a>
+                            <a href="{% url 'editarMago' mago.id %}">editar</a>
+                        </button>
+                    {% endfor %}
+
+                    <a href="mago.html">agregar otro profesor</a>
+                    </ul>
+                </p>
+                        
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

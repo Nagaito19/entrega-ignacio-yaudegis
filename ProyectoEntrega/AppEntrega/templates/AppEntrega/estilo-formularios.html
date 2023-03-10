@@ -1,0 +1,35 @@
+{% extends "AppEntrega/padre.html" %}
+
+{% block titulo %}
+formulario-estilo
+{% endblock titulo %}
+
+
+
+{% block contenido %}
+<section class="features-icons bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+
+                {% if formulario_estilo.errors %}
+                <p style="color:red;">los datos estan mal. por favor reviselos.</p>
+                {% endif %}
+
+                <form action="{% url 'estilo-formularios' %}" method="POST">
+                    {% csrf_token %}
+                    <!--<p>nombre: <input type="text" name="estilo"></p>
+                    <input type="submit" value="Enviar">-->
+
+                    <table>
+                        {{formulario_estilo.as_table}}
+                    </table>
+
+                    <input type="submit" value="Enviar">
+
+                </form>      
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

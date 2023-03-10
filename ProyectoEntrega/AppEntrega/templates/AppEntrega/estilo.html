@@ -1,0 +1,48 @@
+{% extends "AppEntrega/padre.html" %}
+
+{% block titulo %}
+bienvenidos a estilos
+{% endblock titulo %}
+
+
+
+{% block contenido %}
+<section class="features-icons bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                        
+                            <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
+                            {% if formulario_estilo.errors %}
+                            <p style="color:red;">los datos estan mal. por favor reviselos.</p>
+                            {% endif %}
+
+                            <h4>estilos:</h4>
+                            {% for estilo in mi_estilo %}
+                            {{estilo.nombre}} <br>
+                            {% endfor %}
+                            <hr>
+                            {% if nuevo_estilo %}
+
+                            <p>se afrego satisfactoriamente el estilo {{nuevo_estilo.nombre}} </p>
+
+                            <hr>
+
+                            {% endif %}
+
+
+                            <form action="{% url 'estilo' %}" method="POST">
+                                {% csrf_token %}
+            
+                                <table>
+                                    {{formulario_estilo.as_table}}
+                                </table>
+            
+                                <input type="submit" value="Enviar">
+                            <p>Acá va la info de los diferentes estilos de magia</p>
+                        
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
