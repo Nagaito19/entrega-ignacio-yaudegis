@@ -1,0 +1,17 @@
+{% extends "AppEntrega/padre.html" %}
+
+{% block titulo %}
+agregar avatar
+{% endblock titulo %}
+
+{% block contenido %}
+
+<h3>agregar avatar</h3>
+
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ mi_formulario.as_p }}
+    <input type="submit" value="Enviar">
+</form>
+
+{% endblock %}

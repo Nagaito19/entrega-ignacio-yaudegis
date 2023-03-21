@@ -5,4 +5,4 @@ from .models import *
 admin.site.register(Estilo)
 admin.site.register(Mago)
 admin.site.register(Truco)
-admin.site.register(avatar)
+admin.site.register(Avatar)

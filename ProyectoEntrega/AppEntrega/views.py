@@ -197,7 +197,19 @@ def register(request):
 #    logout(request)
 #    return render(request,"AppEntrega/logout.html", {"mensaje":"se ha salido con exito> "})
 
-@login_request
+#@login_request
 def agregar_avatar(request):
-    avatar = request.user.avatar
-    mi_formulario=AvatarFormulario(instanace=avatar)        
+    if request.method == 'POST':
+        mi_formulario = AvatarFormulario(request.POST, request.FILES)
+        if mi_formulario.is_valid():
+            u = User.objects.get(username=request.user)
+            avatar= Avatar(user=u, imagen=mi_formulario.cleaned_data['imagen'])
+            avatar.save()
+            return render (request,'AppEntrega/inicio.html')
+    
+    else:
+
+        mi_formulario= AvatarFormulario()
+    return render(request,"AppEntrega/agregar-avatar.html", {"mi_formulario": mi_formulario})
+
+            

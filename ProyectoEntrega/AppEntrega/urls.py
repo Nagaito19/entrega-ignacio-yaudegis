@@ -22,7 +22,7 @@ urlpatterns = [
     path('login', views.login_request, name="Login"),
     path('register', views.register, name='Register'),
     path('logout', LogoutView.as_view(template_name='AppEntrega/logout.html'), name='Logout'),
-
+    path('agregar-avatar/', views.agregar_avatar, name='agregar_avatar'),
 
 
 ] 

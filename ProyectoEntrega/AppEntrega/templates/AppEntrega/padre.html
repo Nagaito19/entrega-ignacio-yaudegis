@@ -25,12 +25,15 @@
                 <a href="{% url 'mago' %}">mago</a>
                 <a href="{% url 'estilo' %}">estilo</a>
                 <a href="{% url 'truco' %}">truco</a>
-                {% if not request.user.is_authenticated %}
+                {% if request.user.is_authenticated %}
                 <p class="navbar-brand" style="margin-top: 1rem; margin-bottom: 1rem;">
+                <img src="{{(Avatar.objects.filter(user=request.user.id))[0].imagen.url }}"/>
+                <p class="text-muted small mb-4 mb-lg-0">Hola, {{user.username}}
+
 
                 </p>
                 {% else %}
-                <a class="btn btn-primary" href="{% url 'login' %}">login</a>
+                <a class="btn btn-primary" href="{% url 'Login' %}">login</a>
                 {% endif %}
 
             </div>
