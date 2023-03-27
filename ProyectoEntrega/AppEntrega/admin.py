@@ -6,3 +6,6 @@ admin.site.register(Estilo)
 admin.site.register(Mago)
 admin.site.register(Truco)
 admin.site.register(Avatar)
+
+
+admin.site.register(post)

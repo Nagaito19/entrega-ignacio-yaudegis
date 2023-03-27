@@ -4,7 +4,6 @@ from django.contrib.auth.forms import UserCreationForm
 from AppEntrega.models import *
 
 
-
 class EstiloFormulario(forms.Form):
     estilo= forms.CharField()
 
@@ -35,5 +34,5 @@ class MyUserCreationForm(UserCreationForm):
 class AvatarFormulario(forms.ModelForm):
     class Meta:
         model = Avatar
-        fields = '__all__'
-        exclude = ['user']
+        field = '__all__'
+        exclude = ['user']  

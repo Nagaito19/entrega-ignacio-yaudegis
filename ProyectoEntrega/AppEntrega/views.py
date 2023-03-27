@@ -159,8 +159,8 @@ def editarMago(request,mago_id):
 def login_request(request):
     form=AuthenticationForm()
 
-    if request.method=='POST':
-        form=AuthenticationForm(request,data=request.POST or None)
+    if request.method =='POST':
+        form=AuthenticationForm(request,data=request.POST)
 
         if form.is_valid():
             usuario=form.cleaned_data.get('username')
@@ -176,7 +176,7 @@ def login_request(request):
         else: 
             return render(request,'AppEntrega/login.html', {'mensaje':'error,datos incorrectos', 'form':form})
 
-    return render(request,'AppEntrega/login.html', {'form':form})
+    return render(request,'AppEntrega/login.html', {"form": form})
 
 def register(request):
     if request.method == 'POST':
@@ -193,9 +193,9 @@ def register(request):
 
     return render(request,"AppEntrega/registro.html", {"form":form})    
 
-#def logout(request):
-#    logout(request)
-#    return render(request,"AppEntrega/logout.html", {"mensaje":"se ha salido con exito> "})
+def logout(request):
+    logout(request)
+    return render(request,"AppEntrega/logout.html", {"mensaje":"se ha salido con exito> "})
 
 #@login_request
 def agregar_avatar(request):
