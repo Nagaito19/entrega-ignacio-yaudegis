@@ -181,15 +181,15 @@ def login_request(request):
 def register(request):
     if request.method == 'POST':
 
-        form= MyUserCreationForm(request.POST)
+        form= UserCreationForm(request.POST)
 
         if form.is_valid():
             username = form.cleaned_data['username']
             form.save()
             return render(request,"AppEntrega/inicio.html", {"mensaje":"Ususario Creado> "})
-        
+
     else:
-        form = MyUserCreationForm()
+        form = UserCreationForm()
 
     return render(request,"AppEntrega/registro.html", {"form":form})    
 
@@ -212,4 +212,7 @@ def agregar_avatar(request):
         mi_formulario= AvatarFormulario()
     return render(request,"AppEntrega/agregar-avatar.html", {"mi_formulario": mi_formulario})
 
+
+def sobre_mi(request):
+    return render(request, "AppEntrega/sobre-mi.html")
             

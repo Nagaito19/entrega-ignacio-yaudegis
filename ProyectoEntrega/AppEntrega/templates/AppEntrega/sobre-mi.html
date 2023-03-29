@@ -1,0 +1,69 @@
+{% extends "AppEntrega/padre.html" %}
+
+{% block titulo %}
+sobre mi
+{% endblock titulo %}
+
+{% block contenido %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ignacio, el programador novato fanático de la magia</title>
+  </head>
+  <body>
+    <header>
+      <h1>Ignacio, el programador novato fanático de la magia</h1>
+      <nav>
+        <ul>
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="#habilidades">Habilidades</a></li>
+          <li><a href="#experiencia">Experiencia</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <main>
+      <section id="sobre-mi">
+        <h2>Sobre mí</h2>
+        <img src="ignacio.jpg" alt="Foto de Ignacio">
+        <p>¡Hola! Soy Ignacio, un programador novato con una gran pasión por la magia. Desde pequeño, me ha encantado todo lo relacionado con la ilusión y el misterio, y aunque ahora me dedico a la programación, nunca he dejado de lado mi afición por la magia.</p>
+      </section>
+      
+      <section id="habilidades">
+        <h2>Habilidades</h2>
+        <ul>
+            <li>Programación en python y html basico</li>
+        </ul>
+      </section>
+      
+      <section id="experiencia">
+        <h2>Experiencia</h2>
+        <h3>no tengo experiencia </h3>
+        <p>aun no tengo experiencia trabajando de programacion pero estoy desarollando por mi cuenta una aplicacion y estudiando sobre IA.</p>
+        
+        <h3>Mago aficionado</h3>
+        <p>He participado en varios eventos locales como mago aficionado, donde he tenido la oportunidad de mostrar mis trucos de magia a un público variado.</p>
+      </section>
+      
+      <section id="contacto">
+        <h2>Contacto</h2>
+        <form>
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" name="nombre"><br>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email"><br>
+          <label for="mensaje">Mensaje:</label><br>
+          <textarea id="mensaje" name="mensaje"></textarea><br>
+          <button type="submit">Enviar</button>
+        </form>
+      </section>
+    </main>
+    
+    <footer>
+      <p>&copy; 2023 Ignacio, el programador fanático de la magia</p>
+    </footer>
+  </body>
+</html>
+
+{% endblock %}

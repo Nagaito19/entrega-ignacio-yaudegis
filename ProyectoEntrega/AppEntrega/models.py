@@ -19,10 +19,12 @@ class Truco(models.Model):
         return self.nombre + '' + self.clase 
 
 class Mago(models.Model):
-    nombre= models.CharField(max_length=40) 
-    apellido= models.CharField(max_length=40)
+    nombre = models.CharField(max_length=100)
+    informacion = models.TextField()
+    foto = models.ImageField(upload_to='fotos/')
+
     def __str__(self):
-        return self.nombre + " " + self.apellido
+        return self.nombre
         
 class Estilo(models.Model):
     nombre= models.CharField(max_length=40) 
