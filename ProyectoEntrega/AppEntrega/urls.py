@@ -3,6 +3,7 @@ from AppEntrega import views
 from django.contrib.auth.views import LogoutView
 from django.conf.urls.static import static
 from django.conf import settings
+from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
@@ -21,9 +22,11 @@ urlpatterns = [
     path('editarMago/<mago_id>/',views.editarMago, name="editarMago"  ),
     path('login', views.login_request, name="Login"),
     path('register', views.register, name='Register'),
-    path('logout', LogoutView.as_view(template_name='AppEntrega/logout.html'), name='Logout'),
+    #path('logout', LogoutView.as_view(template_name='AppEntrega/logout.html'), name='Logout'),
     path('agregar-avatar/', views.agregar_avatar, name='agregar_avatar'),
     path('sobre-mi/', views.sobre_mi, name='sobre-mi'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    
 
 
 ] 
