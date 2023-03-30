@@ -11,35 +11,86 @@ bienvenidos a estilos
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                        
-                            <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
-                            {% if formulario_estilo.errors %}
-                            <p style="color:red;">los datos estan mal. por favor reviselos.</p>
-                            {% endif %}
-
-                            <h4>estilos:</h4>
-                            {% for estilo in mi_estilo %}
-                            {{estilo.nombre}} <br>
-                            {% endfor %}
-                            <hr>
-                            {% if nuevo_estilo %}
-
-                            <p>se afrego satisfactoriamente el estilo {{nuevo_estilo.nombre}} </p>
-
-                            <hr>
-
-                            {% endif %}
-
-
-                            <form action="{% url 'estilo' %}" method="POST">
-                                {% csrf_token %}
-            
-                                <table>
-                                    {{formulario_estilo.as_table}}
-                                </table>
-            
-                                <input type="submit" value="Enviar">
-                            <p>Acá va la info de los diferentes estilos de magia</p>
+                <head>
+                    <title>Estilos de Magia e Ilusionismo</title>
+                    <style>
+                        h1 {
+                            text-align: center;
+                            font-size: 48px;
+                            color: #333;
+                            margin-top: 50px;
+                        }
+                
+                        h2 {
+                            font-size: 36px;
+                            color: #333;
+                            margin-top: 30px;
+                        }
+                
+                        p {
+                            font-size: 24px;
+                            color: #666;
+                            margin-top: 20px;
+                        }
+                
+                        img {
+                            display: block;
+                            margin: auto;
+                            max-width: 500px;
+                            margin-top: 50px;
+                            margin-bottom: 50px;
+                        }
+                
+                        .container {
+                            max-width: 800px;
+                            margin: auto;
+                            padding: 20px;
+                        }
+                
+                    </style>
+                </head>
+                <body>
+                    <div class="container">
+                        <h1>Estilos de Magia e Ilusionismo</h1>
+                
+                        <h2>Magia de Escenario</h2>
+                        <p>La magia de escenario es uno de los estilos más populares de la magia, y se realiza ante un público en vivo en un escenario o teatro. Algunos de los exponentes más destacados de este estilo son:</p>
+                        <ul>
+                            <li>David Copperfield</li>
+                            <li>Lance Burton</li>
+                            <li>Criss Angel</li>
+                            <li>Teller</li>
+                            <li>Penn Jillette</li>
+                            <li>Derren Brown</li>
+                        </ul>
+                        <img src="https://i.imgur.com/7DYkWfN.jpg" alt="David Copperfield">
+                
+                        <h2>Magia de Cerca</h2>
+                        <p>La magia de cerca es un estilo que se realiza a corta distancia de los espectadores, a menudo en una mesa o en la calle. Los siguientes magos son conocidos por su habilidad en este estilo:</p>
+                        <ul>
+                            <li>Dai Vernon</li>
+                            <li>David Blaine</li>
+                            <li>Juan Tamariz</li>
+                            <li>Slydini</li>
+                            <li>Max Maven</li>
+                            <li>Michael Ammar</li>
+                        </ul>
+                        <img src="https://i.imgur.com/UbZWfWw.jpg" alt="David Blaine">
+                
+                        <h2>Magia Mental</h2>
+                        <p>La magia mental se enfoca en habilidades como la lectura en frío, la sugestión y la manipulación psicológica para crear ilusiones mentales. Los siguientes magos son conocidos por su habilidad en este estilo:</p>
+                        <ul>
+                            <li>Derren Brown</li>
+                            <li>Max Maven</li>
+                            <li>Uri Geller</li>
+                            <li>Bob Cassidy</li>
+                            <li>Banachek</li>
+                            <li>Richard Osterlind</li>
+                        </ul>
+                        <img src="https://i.imgur.com/04wz5OZ.jpg" alt="Derren Brown">
+                
+                    </div>
+                </body>
                         
             </div>
         </div>

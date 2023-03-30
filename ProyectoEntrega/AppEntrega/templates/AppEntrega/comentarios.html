@@ -1,0 +1,46 @@
+{% extends "AppEntrega/padre.html" %}
+
+{% block titulo %}
+bienvenidos al inicio
+{% endblock titulo %}
+
+
+{% block contenido %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Comentarios</title>
+
+</head>
+<body>
+	<h1>Comentarios</h1>
+
+
+	<form method="POST">
+		{% csrf_token %}
+		<label for="nombre">Nombre:</label>
+		<input type="text" name="nombre" required>
+		<br>
+		<label for="comentario">Comentario:</label>
+		<textarea name="comentario" required></textarea>
+		<br>
+		<input type="submit" value="Enviar comentario">
+	</form>
+
+	<hr>
+
+
+	{% if comentarios %}
+		{% for comentario in comentarios %}
+			<h3>{{ comentario.nombre }}</h3>
+			<p>{{ comentario.texto }}</p>
+			<hr>
+		{% endfor %}
+	{% else %}
+		<p>No hay comentarios aún.</p>
+	{% endif %}
+
+
+</body>
+</html>
+{% endblock %}

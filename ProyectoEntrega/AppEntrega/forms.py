@@ -2,7 +2,8 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm  
 from AppEntrega.models import *
-
+from django import forms
+from .models import Comentario
 
 class EstiloFormulario(forms.Form):
     estilo= forms.CharField()
@@ -36,3 +37,10 @@ class AvatarFormulario(forms.ModelForm):
         model = Avatar
         field = '__all__'
         exclude = ['user']  
+
+class ComentarioForm(forms.ModelForm):
+    class Meta:
+        model = Comentario
+        fields = ['nombre', 'texto']
+        labels = {'nombre': 'Nombre', 'texto': 'Comentario'}
+        widgets = {'nombre': forms.TextInput(attrs={'required': True}), 'texto': forms.Textarea(attrs={'required': True})}
