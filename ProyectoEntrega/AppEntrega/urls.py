@@ -21,7 +21,7 @@ urlpatterns = [
     path('leerMago', views.leerMago, name = "LeerMago"),
     path('eliminarMago/<mago_id>/',views.eliminarMago, name="eliminarMago"  ),
     path('editarMago/<mago_id>/',views.editarMago, name="editarMago"  ),
-    path('login', views.login, name="login"),
+    path('login', views.login_request, name="login"),
     path('register', views.register, name='register'),
     #path('logout', LogoutView.as_view(template_name='AppEntrega/logout.html'), name='Logout'),
     path('agregar-avatar/', views.agregar_avatar, name='agregar_avatar'),

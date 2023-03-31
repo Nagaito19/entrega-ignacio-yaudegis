@@ -15,7 +15,7 @@ from .forms import ComentarioForm
 
 def inicio(request):
     return render(request, "AppEntrega/inicio.html")
-
+@login_required
 def estilo(request):
     mi_estilo=Estilo.objects.all()
 
@@ -34,7 +34,7 @@ def estilo(request):
         mi_formulario=EstiloFormulario()
 
     return render(request, "AppEntrega\estilo.html", {'formulario_estilo':mi_formulario,'mi_estilo':mi_estilo})
-
+@login_required
 def truco (request):
     mi_truco=Truco.objects.all()
 
@@ -53,7 +53,7 @@ def truco (request):
         mi_formulario=TrucoFormulario()
 
     return render(request, "AppEntrega/truco.html", {'formulario_truco':mi_formulario,'mi_truco':mi_truco})
-
+@login_required
 def mago (request):
     mi_mago=Mago.objects.all()
 
@@ -161,12 +161,12 @@ def editarMago(request,mago_id):
 
     return render (request,"AppEntrega/editarMago.html", {"mi_formulario":mi_formulario,"mago_id":mago_id})
 
-def login(request):
+def login_request(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, request.POST)
         if form.is_valid():
             login(request, form.get_user())
-            return redirect('pagina_inicio')
+            return redirect('inicio')
     else:
         form = AuthenticationForm()
     return render(request, 'AppEntrega/login.html', {'form': form})
@@ -178,11 +178,11 @@ def register(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('pagina_inicio')
+            return redirect('inicio')
     else:
         form = UserCreationForm()
     return render(request, 'inicio/registro.html', {'form': form})
-
+@login_required
 def logout(request):
     logout(request)
     return render(request,"AppEntrega/logout.html", {"mensaje":"se ha salido con exito> "})
