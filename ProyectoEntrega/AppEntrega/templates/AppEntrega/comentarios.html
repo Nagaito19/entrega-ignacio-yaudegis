@@ -1,7 +1,7 @@
 {% extends "AppEntrega/padre.html" %}
 
 {% block titulo %}
-bienvenidos al inicio
+comentarios
 {% endblock titulo %}
 
 
@@ -9,12 +9,10 @@ bienvenidos al inicio
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Comentarios</title>
+	<h2>Dejanos tu opinion sobre la pagina</h2>
 
 </head>
 <body>
-	<h1>Comentarios</h1>
-
 
 	<form method="POST">
 		{% csrf_token %}
@@ -31,7 +29,7 @@ bienvenidos al inicio
 
 
 	{% if comentarios %}
-		{% for comentario in comentarios %}
+		{% for comentarios in comentarios %}
 			<h3>{{ comentario.nombre }}</h3>
 			<p>{{ comentario.texto }}</p>
 			<hr>

@@ -11,33 +11,31 @@ bienvenidos a trucos
     <div class="container">
         <div class="row">
             <div class="col-lg-12">           
-                <!--Aquí va lo que cambia, y lo asociado a está vista :) -->
-                <h1>trucos</h1>
-                {% if formulario_truco.errors %}
-                <p style="color:red;">los datos estan mal. por favor reviselos.</p>
-                {% endif %}
-
-                <h4>trucos:</h4>
-                {% for truco in mi_truco %}
-                {{truco.nombre}} <br>
-                {% endfor %}
-                <hr>
-                {% if nuevo_truco %}
-
-                <p>se afrego satisfactoriamente el truco {{nuevo_truco.nombre}}{{nuevo_truco.clase}} </p>
-
-                <hr>
-
-                {% endif %}
-                <form action="{% url 'truco' %}" method="POST">
-                    {% csrf_token %}
-
-                    <table>
-                        {{formulario_truco.as_table}}
-                    </table>
-
-                    <input type="submit" value="Enviar">
-                <p>Acá va la info de los diferentes trucos de magia</p>
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>Trucos de Magia más Conocidos</title>                      
+                    </style>
+                </head>
+                <body>
+                    <div class="container">
+                        <h1>Trucos de Magia más Conocidos</h1>
+                
+                        <h2>La Levitación de David Copperfield</h2>
+                        <p>David Copperfield es conocido por muchos trucos increíbles, pero su levitación es uno de los más emblemáticos. En este truco, Copperfield se levanta del suelo y flota en el aire sin ningún tipo de soporte visible. Aunque el truco ha sido imitado por muchos magos, Copperfield sigue siendo el maestro del mismo.</p>
+                        <img src="https://i.imgur.com/U5z5QxH.jpg" alt="David Copperfield Levitando">
+                
+                        <h2>El Conejo en el Sombrero de Harry Houdini</h2>
+                        <p>El famoso mago y escapista Harry Houdini era conocido por muchos trucos impresionantes, pero el Conejo en el Sombrero es uno de sus más icónicos. Houdini sería capaz de producir un conejo vivo de un sombrero aparentemente vacío. Aunque el truco ha sido adaptado por muchos magos a lo largo de los años, Houdini es el maestro original de esta ilusión.</p>
+                        <img src="https://i.imgur.com/VTxcOJj.jpg" alt="Harry Houdini con Conejo en el Sombrero">
+                
+                        <h2>La Desaparición del Mago en una Caja</h2>
+                        <p>Este truco es una de las ilusiones más comunes en la magia moderna, y fue popularizado por magos como Doug Henning y David Blaine. En este truco, el mago entra en una caja o contenedor cerrado y desaparece misteriosamente, solo para reaparecer más tarde en algún lugar completamente diferente. Aunque hay muchas variaciones de este truco, su origen se atribuye a Harry Blackstone Sr., quien lo popularizó en la década de 1920.</p>
+                        <img src="https://i.imgur.com/6Z7QuLJ.jpg" alt="David Blaine en Caja de Vidrio">
+                
+                        <h2>La Cortina de la Muerte de Houdini</h2>
+                        <p>Otro truco icónico de Harry Houdini es la Cortina de la Muerte, que
+                
             </div>
         </div>
     </div>

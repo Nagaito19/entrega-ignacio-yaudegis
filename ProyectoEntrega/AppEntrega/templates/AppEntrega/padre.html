@@ -25,6 +25,7 @@
                 <a href="{% url 'mago' %}">mago</a>
                 <a href="{% url 'estilo' %}">estilo</a>
                 <a href="{% url 'truco' %}">truco</a>
+                <a href="{% url 'comentarios' %}">comentarios</a>
                 {% if request.user.is_authenticated %}
                 <p class="navbar-brand" style="margin-top: 1rem; margin-bottom: 1rem;">
                 <img src="{{ request.user.avatar.imagen.url }}" class="rounded-circle" height="70 px" alt="{{ user.username }}" style="margin: right 1rem;"/>

@@ -5,7 +5,6 @@ from django.http import HttpResponse
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
 from .models import Comentario 
 from .forms import ComentarioForm 
 
@@ -13,9 +12,10 @@ from .forms import ComentarioForm
 
 
 
+
 def inicio(request):
     return render(request, "AppEntrega/inicio.html")
-@login_required
+
 def estilo(request):
     mi_estilo=Estilo.objects.all()
 
@@ -34,7 +34,7 @@ def estilo(request):
         mi_formulario=EstiloFormulario()
 
     return render(request, "AppEntrega\estilo.html", {'formulario_estilo':mi_formulario,'mi_estilo':mi_estilo})
-@login_required
+
 def truco (request):
     mi_truco=Truco.objects.all()
 
@@ -53,7 +53,7 @@ def truco (request):
         mi_formulario=TrucoFormulario()
 
     return render(request, "AppEntrega/truco.html", {'formulario_truco':mi_formulario,'mi_truco':mi_truco})
-@login_required
+
 def mago (request):
     mi_mago=Mago.objects.all()
 
@@ -170,6 +170,7 @@ def login(request):
     else:
         form = AuthenticationForm()
     return render(request, 'AppEntrega/login.html', {'form': form})
+        
 
 def register(request):
     if request.method == 'POST':
@@ -180,13 +181,13 @@ def register(request):
             return redirect('pagina_inicio')
     else:
         form = UserCreationForm()
-    return render(request, 'AppEntrega/registro.html', {'form': form})
-@login_required
+    return render(request, 'inicio/registro.html', {'form': form})
+
 def logout(request):
     logout(request)
     return render(request,"AppEntrega/logout.html", {"mensaje":"se ha salido con exito> "})
 
-@login_required
+
 def agregar_avatar(request):
     if request.method == 'POST':
         mi_formulario = AvatarFormulario(data = request.POST,files = request.FILES)
@@ -204,7 +205,6 @@ def agregar_avatar(request):
 
 def sobre_mi(request):
     return render(request, "AppEntrega/sobre-mi.html")
-            
 
 def comentarios(request):
     comentarios = Comentario.objects.order_by('-fecha') # obtiene los comentarios de la base de datos ordenados por fecha descendente
@@ -215,4 +215,4 @@ def comentarios(request):
             return redirect('comentarios') # redirige al usuario a la página de comentarios
     else:
         form = ComentarioForm()
-    return render(request, 'comentarios.html', {'form': form, 'comentarios': comentarios})
+    return render(request, 'AppEntrega/comentarios.html', {'form': form, 'comentarios': comentarios})  
